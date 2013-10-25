@@ -10,4 +10,15 @@ end
 
 def main_menu
   print_main_menu
-  user_sele
+  user_selected = gets.to_i
+  call_option(user_selected)
+end
+
+def call_option(user_selected)
+  add_new_contact if user_selected == 1
+  modify_existing_contact if user_selected == 2
+  delete_contact if user_selected == 3
+  display_all_contacts if user_selected == 4
+  display_an_attribute if user_selected == 5
+  exit if user_selected == 6
+end
