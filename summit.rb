@@ -1,4 +1,9 @@
 class CRM
+  def initialize(name)
+    @name = name
+  end
+end
+
   def print_main_menu
     puts "[1] Add a new contact"
     puts "[2] Modify an existing contact"
@@ -23,3 +28,15 @@ class CRM
     display_an_attribute if user_selected == 5
     exit if user_selected == 6
   end
+end
+
+class Contact
+  def initialize(first_name, last_name, email, note)
+    @first_name = first_name
+    @last_name = last_name
+    @email = email
+    @note = note
+  end
+end
+
+
