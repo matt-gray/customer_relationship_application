@@ -28,15 +28,17 @@ end
     display_an_attribute if user_selected == 5
     exit if user_selected == 6
   end
-end
 
-class Contact
-  def initialize(first_name, last_name, email, note)
-    @first_name = first_name
-    @last_name = last_name
-    @email = email
-    @note = note
+  def add_new_contact
+    print "What is your first name?"
+    first_name = gets.chomp
+    print "What is your last name?"
+    last_name = gets.chomp
+    print "What is your email?"
+    email = gets.chomp
+    print "Please write out any notes."
+    notes = gets.chomp
+    contact = Contact.new(first_name, last_name, email, note)
   end
-end
 
 
