@@ -1,5 +1,5 @@
 class Contact
-  
+
   attr_accessor :contacts, :id, :first_name, :email, :note
 
   def initialize(first_name, last_name, email, note)
@@ -17,14 +17,6 @@ class Contact
       puts "Email: #{@email}"
       puts "Note: #{@note}"
     end
-  end
-
-  def email
-    @email
-  end
-
-  def note(note)
-    @note = note
   end
 
 end

@@ -25,7 +25,7 @@ end
   end
 
   def print_main_menu
-    puts "Welcome to #{@name} the pinncale of customer relationship management."
+    puts "Welcome to #{@name}, the pinncale of customer relationship management."
     puts "[1] Add a new contact"
     puts "[2] Modify an existing contact"
     puts "[3] Delete a contact"
@@ -42,9 +42,10 @@ end
     call_option(user_selected)
   end
 
+
   def call_option(user_selected)
     add_new_contact if user_selected == 1
-    modify_existing_contact if user_selected == 2
+    modify_contact_list if user_selected == 2
     delete_contact if user_selected == 3
     display_all_contacts if user_selected == 4
     display_an_attribute if user_selected == 5
@@ -86,11 +87,18 @@ end
     main_menu
   end
 
-  def get_contact (contact_selected)
+  def get_contact(contact_selected)
     Rolodex.contacts(contact_selected)
   end
 
   def display_particular_contact #need to finish this
+    puts "Type an atrriubute about the contact you wish to see:"
+    contact_inputted = gets.chomp.to_i
+    contact_selected = get_contact(contact_inputted)
+    puts contact_selected.id
+    puts contact_selected.first_name
+    puts contact_inputted.last_name
+  end
 
   def add_new_contact
     print "What is your first name?"
@@ -102,6 +110,7 @@ end
     print "Please write out any notes."
     note = gets.chomp
     contact = Contact.new(first_name, last_name, email, note)
+    Rolodex.add_contact(contact)
   end
 
   def delete_contact(id)
@@ -135,11 +144,7 @@ end
     puts main_menu if user_selected == 6
     puts "Please type a number from 1 through 6" if user_selected > 6
   end  
-
-  def exit
-    
-  end
 end
 
-summit = CRM.new("Welcome to summit")
+summit = CRM.new("Summit")
 summit.main_menu
